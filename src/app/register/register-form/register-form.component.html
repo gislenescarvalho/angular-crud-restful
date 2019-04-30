@@ -1,0 +1,79 @@
+<h5>{{ title }}</h5>
+<br>
+<div class="row">
+
+  <form materialize class="col s12" [formGroup]="form" (ngSubmit)="save()">
+    <div class="row">
+
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="nome" type="text" class="validate"
+        [(ngModel)]="user.nome" formControlName="nome"
+        [class.invalid]="form.controls['nome'].touched && !form.controls['nome'].valid">
+        <label for="nome"
+               [class.active]="user.nome"
+               data-error="O preenchimento do campo nome é obrigatório e precisa ter no mínimo 3 caracters.">
+          Nome
+        </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+        <i class="material-icons prefix">cake</i> 
+        <input id="dataNascimento" type="text" class="validate" [(ngModel)]="user.dataNascimento" formControlName="dataNascimento"
+        [class.invalid]="form.controls['dataNascimento'].touched && !form.controls['dataNascimento'].valid">
+        <label for="dataNascimento"
+        [class.active]="user.dataNascimento"
+        data-error="O preenchimento do campo é obrigatório.
+        O formato da data deve ser dd/mm/aaaa">Data de Nascimento</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">assignment_ind</i>
+        <input id="identificacao" type="text" class="validate"
+               [(ngModel)]="user.identificacao" formControlName="identificacao"
+               [class.invalid]="form.controls['identificacao'].touched && !form.controls['identificacao'].valid">
+        <label for="identificacao"
+               [class.active]="user.identificacao"
+               data-error="O preenchimento do campo é obrigatório e deve ter no mínimo 8 caracteres.">
+          Documento de identificação
+        </label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col s6">
+          <i class="material-icons">favorite</i>
+            <label class = "gender">Sexo</label>
+              <p>
+                <input name="sexo" type="radio" id="m" value="1"  [formControl]="form.controls['sexo']"  [(ngModel)]="user.sexo"/>
+                <label for="m">Masculino</label>
+              </p>
+              <p>
+                <input name="sexo" type="radio" id="f"  value="2" [formControl]="form.controls['sexo']" [(ngModel)]="user.sexo"/>
+                <label for="f">Feminino</label>
+              </p>
+        </div>
+    </div>
+     
+      <div class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">place</i>
+          <input id="endereco" type="text" class="validate"
+                 [(ngModel)]="user.endereco" formControlName="endereco"
+                 [class.invalid]="form.controls['endereco'].touched
+                  && !form.controls['endereco'].valid">
+          <label for="endereco"
+                 [class.active]="user.endereco"
+                 data-error="O preenchimento do campo é obrigatório e deve ter no
+                 mínimo 3 caracteres  e no máximo 50 caracteres">
+            Endereço Completo
+          </label>
+        </div>
+      </div>
+    <button class="btn waves-effect waves-light" type="submit"
+            [disabled]="!form.valid">
+      Cadastrar<i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>

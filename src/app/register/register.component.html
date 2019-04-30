@@ -1,0 +1,62 @@
+
+
+
+<br>
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">search</i>
+          <input id="icon_prefix" class="form-control" type="text" name="search" [(ngModel)]="filter">
+          <label for="icon_prefix">Filtrar</label>
+        </div>
+      </div>
+    </form>
+  </div>
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">Name</th>
+    <th data-field="name">Data de Nascimento</th>
+    <th data-field="name">Sexo</th>
+    <th data-field="name">Identificação</th>
+    <th data-field="name">Endereço</th>
+    <th data-field="name">Editar</th>
+    <th data-field="name">Deletar</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor= "let user of users | filter:filter; let i = index">
+      <td>{{ user.nome }}</td>
+      <td>{{ user.dataNascimento  | date: 'dd/MM/yyyy' }}</td>
+      <td *ngIf="(user.sexo == 1)">Masculino</td>
+      <td *ngIf="(user.sexo == 2)">Feminino</td>
+      <td>{{ user.identificacao }}</td>
+      <td>{{ user.endereco }}</td>
+      <td>
+        <a [routerLink]="['/users', user.id]">
+          <i class="material-icons orange600">mode_edit</i>
+        </a>
+      </td>
+      <td>
+        <a (click)="deleteUser(user)" href="">
+          <i class="material-icons green300">delete_forever</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+    Exibindo {{ users.length }} usuários.
+  </p>
+
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large waves-effect waves-light green"
+     routerLink="/users/new">
+    <i class="material-icons">add</i>
+  </a>
+</div>

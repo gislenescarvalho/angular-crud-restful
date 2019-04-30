@@ -1,0 +1,18 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo center">Pessoas CRUD</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"
+    materialize="sideNav"
+    [materializeParams]="[{menuWidth: 300,edge: 'left', closeOnClick: true, draggable: true}]"><i class="material-icons">menu</i></a>
+    <ul class="left hide-on-med-and-down">
+      <li><a routerLink="/users" routerLinkActive="active">Cadastro</a></li>
+      <li><a routerLink="/reports" routerLinkActive="active">Relatório</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a routerLink="/users" routerLinkActive="active">Cadastro</a></li>
+        <li><a routerLink="/reports" routerLinkActive="active">Relatório</a></li>
+      </ul>
+  </div>
+</nav>
+
+

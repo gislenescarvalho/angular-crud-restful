@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/materialize-css/dist/css/materialize.css";
+
+/* Ícones */
+.material-icons.orange600 { color: #FB8C00; }
+
+.material-icons.green300{ color: #006400;}
+
+.gender{font-size: 15px; margin-left:10px;}
+
+/* textos */
+
+.text-center { text-align: center;}
+
+
+
+
